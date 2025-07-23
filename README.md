@@ -29,8 +29,9 @@ This project integrates hardware and software to control a differential-drive ro
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/322868f1-7452-4027-bea8-a845d3bc5450" />
 RViz Simulation
 
+
 <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/725a26f0-9cbd-4058-8d93-9a83c22c9cfd" />
 <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/9bd69838-fcb2-4361-a6cb-70a8315e3404" />
-Gazebbo Simulation
+Gazebo Simulation
 
 
