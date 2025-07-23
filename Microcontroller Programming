@@ -1,0 +1,41 @@
+#include <ros.h>
+#include
+<geometry_msgs/Twist.h>
+int IN1 = 9, IN2 = 8, IN3 = 7, IN4 =
+6;
+ros::NodeHandle nh;
+void moveCallback(const
+geometry_msgs::Twist& cmd_vel)
+{
+ if (cmd_vel.linear.x > 0) {
+ digitalWrite(IN1, HIGH);
+digitalWrite(IN2, LOW);
+ digitalWrite(IN3, HIGH);
+digitalWrite(IN4, LOW);
+ } else if (cmd_vel.angular.z < 0) {
+ digitalWrite(IN1, LOW);
+digitalWrite(IN2, HIGH);
+ digitalWrite(IN3, HIGH);
+digitalWrite(IN4, LOW);
+ } else {
+ digitalWrite(IN1, LOW);
+digitalWrite(IN2, LOW);
+ digitalWrite(IN3, LOW);
+digitalWrite(IN4, LOW);
+ }
+}
+ros::Subscriber<geometry_msgs::T
+wist> sub("cmd_vel",
+moveCallback);
+void setup() {
+ pinMode(IN1, OUTPUT);
+pinMode(IN2, OUTPUT);
+ pinMode(IN3, OUTPUT);
+pinMode(IN4, OUTPUT);
+ nh.initNode();
+ nh.subscribe(sub);
+}
+void loop() {
+ nh.spinOnce
+();
+}
