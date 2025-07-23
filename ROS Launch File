@@ -1,0 +1,12 @@
+<launch>
+ <param name="robot_description" command="$(find xacro)/xacro '$(find
+car_control)/urdf/four_wheel_rover.urdf.xacro'" />
+ <param name="use_sim_time" value="true" />
+ <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="-s libgazebo_ros_factory.so"
+output="screen"/>
+ <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" output="screen"/>
+ <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+ args="-urdf -model my_rover -param robot_description"
+ output="screen" />
+ <node pkg="car_control" type="square_drive.py" name="square_drive" output="screen" />
+</launch>
